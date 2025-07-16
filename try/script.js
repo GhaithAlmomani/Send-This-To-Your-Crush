@@ -102,7 +102,7 @@ const sillySteps = [
 
 const gifs = {
     initial: 'https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExb2Z2b2Z2d3F2b2Z2d3F2b2Z2d3F2b2Z2d3F2b2Z2d3F2b2Z2/g9582DNuQppxC/giphy.gif',
-    happy: 'https://media.giphy.com/media/111ebonMs90YLu/giphy.gif',
+    happy: 'https://media.giphy.com/media/5GoVLqeAOo6PK/giphy.gif', // funny dancing cat
     retry: 'https://media.giphy.com/media/3o7TKtnuHOHHUjR38Y/giphy.gif'
 };
 
@@ -266,14 +266,11 @@ document.addEventListener('mousemove', function(e) {
     setTimeout(() => heart.remove(), 900);
 });
 
-function speakCelebration() {
-    if ('speechSynthesis' in window) {
-        const utter = new window.SpeechSynthesisUtterance("YAHOOOO lets goo");
-        utter.rate = 1.1;
-        utter.pitch = 1.2;
-        utter.volume = 1;
-        utter.lang = 'en-US';
-        window.speechSynthesis.speak(utter);
+function playYahooletsgo() {
+    const audio = document.getElementById('yahooletsgo');
+    if (audio) {
+        audio.currentTime = 0;
+        audio.play();
     }
 }
 
@@ -281,8 +278,8 @@ function speakCelebration() {
 const originalYesBtnOnClick = yesBtn.onclick;
 yesBtn.onclick = function(...args) {
     originalYesBtnOnClick.apply(this, args);
-    // Only speak if Yes was accepted (not during silly steps)
+    // Only play if Yes was accepted (not during silly steps)
     if (state === 'initial' && yesBtn.disabled && noBtn.disabled) {
-        speakCelebration();
+        playYahooletsgo();
     }
 }; 
