@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hang Out Proposal</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <svg class="wavy-top" viewBox="0 0 500 90" preserveAspectRatio="none"><path d="M0,30 Q250,90 500,30 L500,0 L0,0 Z" fill="#fff" fill-opacity="0.25"/></svg>
+    <div class="shape shape1"></div>
+    <div class="shape shape2"></div>
+    <div class="shape shape3"></div>
+    <div class="shape shape4"></div>
+    <div class="container">
+        <h1 id="main-question">Will you hang out with me? 🥺👉👈</h1>
+        <img id="main-gif" src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExb2Z2b2Z2d3F2b2Z2d3F2b2Z2d3F2b2Z2d3F2b2Z2d3F2b2Z2/g9582DNuQppxC/giphy.gif" alt="Cute Cat" />
+        <div class="buttons">
+            <button id="yes-btn">Yes 😍</button>
+            <button id="no-btn">No 🙈</button>
+        </div>
+        <div id="progress-bar"></div>
+        <div id="response"></div>
+        <button id="share-btn" style="display:none; margin-top:18px;">Share this!</button>
+    </div>
+    <canvas id="confetti-canvas" style="position:fixed;top:0;left:0;width:100vw;height:100vh;pointer-events:none;z-index:100;display:none;"></canvas>
+    <audio id="sound-click" src="https://cdn.jsdelivr.net/gh/naptha/tinysound/sfx/pop.ogg"></audio>
+    <audio id="sound-yes" src="https://cdn.jsdelivr.net/gh/naptha/tinysound/sfx/coin.ogg"></audio>
+    <audio id="sound-confetti" src="https://cdn.jsdelivr.net/gh/naptha/tinysound/sfx/cheer.ogg"></audio>
+    <script src="script.js"></script>
+</body>
+</html> 

@@ -1,0 +1,215 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@500&display=swap');
+
+body {
+    background: linear-gradient(120deg, #f093fb 0%, #f5576c 100%);
+    min-height: 100vh;
+    margin: 0;
+    font-family: 'Fredoka', 'Comic Sans MS', cursive, sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32"><text y="24" font-size="24">❤️</text></svg>') 0 24, auto;
+}
+
+/* Wavy SVG divider at the top */
+.wavy-top {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 90px;
+    z-index: 2;
+    pointer-events: none;
+}
+
+/* Silly floating shapes */
+.shape {
+    position: absolute;
+    border-radius: 50%;
+    opacity: 0.18;
+    z-index: 0;
+    animation: float 8s ease-in-out infinite;
+}
+.shape1 { width: 120px; height: 120px; background: #fff176; top: 10%; left: 8%; animation-delay: 0s; }
+.shape2 { width: 80px; height: 80px; background: #81ecec; top: 70%; left: 80%; animation-delay: 2s; }
+.shape3 { width: 100px; height: 100px; background: #fd79a8; top: 60%; left: 15%; animation-delay: 4s; }
+.shape4 { width: 60px; height: 60px; background: #a29bfe; top: 20%; left: 70%; animation-delay: 1s; }
+
+@keyframes float {
+    0%, 100% { transform: translateY(0) scale(1); }
+    50% { transform: translateY(-30px) scale(1.1); }
+}
+
+.container {
+    position: relative;
+    z-index: 1;
+    background: rgba(255,255,255,0.25);
+    border-radius: 40px;
+    box-shadow: 0 12px 48px rgba(60,60,60,0.22);
+    padding: 56px 36px 36px 36px;
+    text-align: center;
+    max-width: 370px;
+    backdrop-filter: blur(14px);
+    border: 2.5px solid rgba(255,255,255,0.35);
+    margin: 48px 32px 32px 32px;
+}
+
+h1 {
+    font-size: 2.1rem;
+    margin-bottom: 28px;
+    color: #f5576c;
+    font-family: 'Fredoka', cursive, sans-serif;
+    letter-spacing: 1px;
+    text-shadow: 0 2px 8px #fff3;
+}
+
+#main-gif {
+    width: 190px;
+    border-radius: 28px;
+    margin-bottom: 28px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.10);
+    transition: filter 0.4s;
+    background: #fff6;
+    border: 3px solid #fff176;
+    animation: bounce 1.8s infinite;
+}
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    20% { transform: translateY(-10px); }
+    40% { transform: translateY(-18px); }
+    60% { transform: translateY(-10px); }
+    80% { transform: translateY(-4px); }
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    gap: 28px;
+    margin-bottom: 24px;
+}
+
+button {
+    font-size: 1.3rem;
+    padding: 18px 38px;
+    border: none;
+    border-radius: 22px;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+    font-family: inherit;
+    font-weight: 500;
+    box-shadow: 0 2px 12px #f5576c33;
+    background: #fff;
+    color: #f5576c;
+    outline: none;
+    position: relative;
+    z-index: 1;
+}
+button:active {
+    transform: scale(0.97);
+}
+button:hover {
+    animation: pulse 0.7s;
+}
+@keyframes pulse {
+    0% { box-shadow: 0 0 0 0 #fff17655; }
+    70% { box-shadow: 0 0 0 12px #fff17611; }
+    100% { box-shadow: 0 0 0 0 #fff17600; }
+}
+#yes-btn {
+    background: linear-gradient(90deg, #fff176 0%, #81ecec 100%);
+    color: #222;
+}
+#yes-btn:hover {
+    background: linear-gradient(90deg, #81ecec 0%, #fff176 100%);
+    transform: scale(1.08) rotate(-2deg);
+    box-shadow: 0 4px 24px #81ecec55;
+}
+#no-btn {
+    background: linear-gradient(90deg, #fd79a8 0%, #a29bfe 100%);
+    color: #fff;
+}
+#no-btn:hover {
+    background: linear-gradient(90deg, #a29bfe 0%, #fd79a8 100%);
+    transform: scale(1.08) rotate(2deg);
+    box-shadow: 0 4px 24px #a29bfe55;
+}
+
+#response {
+    font-size: 1.35rem;
+    margin-top: 22px;
+    min-height: 44px;
+    color: #fd79a8;
+    font-weight: bold;
+    text-shadow: 0 2px 8px #fff3;
+    transition: color 0.3s;
+}
+
+#progress-bar {
+    width: 100%;
+    height: 10px;
+    background: #fff6;
+    border-radius: 8px;
+    margin: 18px 0 8px 0;
+    overflow: hidden;
+    box-shadow: 0 2px 8px #fd79a822;
+    display: none;
+}
+#progress-bar-inner {
+    height: 100%;
+    background: linear-gradient(90deg, #fd79a8 0%, #fff176 100%);
+    border-radius: 8px;
+    width: 0%;
+    transition: width 0.5s;
+}
+
+#share-btn {
+    background: #fff176;
+    color: #f5576c;
+    border: none;
+    border-radius: 16px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    padding: 10px 28px;
+    cursor: pointer;
+    box-shadow: 0 2px 12px #fff17655;
+    transition: background 0.2s, color 0.2s;
+}
+#share-btn:hover {
+    background: #fd79a8;
+    color: #fff;
+}
+
+/* Animated emoji stickers */
+.sticker {
+    position: fixed;
+    z-index: 200;
+    font-size: 2.2rem;
+    pointer-events: none;
+    animation: sticker-float 1.2s ease-out forwards;
+}
+@keyframes sticker-float {
+    0% { opacity: 1; transform: scale(1) translateY(0); }
+    80% { opacity: 1; }
+    100% { opacity: 0; transform: scale(1.5) translateY(-120px) rotate(20deg); }
+}
+
+@media (max-width: 500px) {
+    .container {
+        padding: 24px 8px 18px 8px;
+        max-width: 98vw;
+    }
+    h1 {
+        font-size: 1.2rem;
+    }
+    #main-gif {
+        width: 120px;
+    }
+    .buttons {
+        gap: 12px;
+    }
+    button {
+        padding: 10px 12px;
+        font-size: 1rem;
+    }
+} 
